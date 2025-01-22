@@ -22,13 +22,25 @@ def get_adapter():
     return ret
 
 
-@router.get("/adapter/download/{adapter_name}")
-def download_adapter(adapter_name: str):
+@router.get("/adapter/download_weight/{adapter_name}")
+def download_adapter_weight(adapter_name: str):
     adapter = db_get_obj(f'__adapter__{adapter_name}')
     if not adapter or adapter['state'] != 'DONE':
         return {"message": "Adapter is not ready for download."}
 
     file_path = os.path.join(root_dir_list()['adapter'], adapter['path'], 'adapter_model.bin')
+    if os.path.exists(file_path):
+        return FileResponse(file_path, media_type='application/octet-stream')
+    return {"message": "File not found."}
+
+
+@router.get("/adapter/download_config/{adapter_name}")
+def download_adapter_config(adapter_name: str):
+    adapter = db_get_obj(f'__adapter__{adapter_name}')
+    if not adapter or adapter['state'] != 'DONE':
+        return {"message": "Adapter is not ready for download."}
+
+    file_path = os.path.join(root_dir_list()['adapter'], adapter['path'], 'adapter_config.json')
     if os.path.exists(file_path):
         return FileResponse(file_path, media_type='application/octet-stream')
     return {"message": "File not found."}
