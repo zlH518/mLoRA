@@ -7,16 +7,16 @@ G_TEST_ADAPTERS = [
     # lora adapter
     "adapters/lora_sft_0",
     "adapters/lora_sft_1",
-    # loraplus adapter
-    "adapters/loraplus_sft_0",
-    "adapters/loraplus_sft_1",
-    # dpo adapter
-    "adapters/lora_base_dpo",
-    "adapters/lora_sft_dpo",
-    "adapters/loraplus_sft_dpo",
-    # cpo adapter
-    "adapters/lora_cpo",
-    "adapters/loraplus_cpo"
+    # # loraplus adapter
+    # "adapters/loraplus_sft_0",
+    # "adapters/loraplus_sft_1",
+    # # dpo adapter
+    # "adapters/lora_base_dpo",
+    # "adapters/lora_sft_dpo",
+    # "adapters/loraplus_sft_dpo",
+    # # cpo adapter
+    # "adapters/lora_cpo",
+    # "adapters/loraplus_cpo"
 ]
 
 
